@@ -5,9 +5,13 @@ const links = [
   { href: '/about/', label: 'About' },
 ];
 ---
-<header class='container' style='display:flex;align-items:center;justify-content:space-between;padding:16px 0;'>
-  <a href='/' style='text-decoration:none;color:#4fd1ff;font-weight:700;font-size:18px'>BrainDev</a>
-  <nav style='display:flex;gap:16px;'>
-    {links.map((l) => <a href={l.href} style='color:#e6f1ff;text-decoration:none'>{l.label}</a>)}
+<header class="container" style="display:flex;align-items:center;justify-content:space-between;padding:16px 0;">
+  <a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none">
+    <img src="/braindevlab-logo.svg" alt="BrainDev Lab" width="28" height="28" style="display:block"/>
+    <span style="color:#4fd1ff;font-weight:700;font-size:18px">BrainDev Lab</span>
+  </a>
+
+  <nav style="display:flex;gap:16px;">
+    {links.map((l) => <a href={l.href} style="color:#e6f1ff;text-decoration:none">{l.label}</a>)}
   </nav>
 </header>
