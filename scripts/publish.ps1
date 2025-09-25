@@ -1,17 +1,21 @@
 ﻿Param(
   [Parameter(Mandatory=$true)][string]$Title,
-  [Parameter(Mandatory=$true)][string]$ContentFile
+  [Parameter(Mandatory=$true)][string]$ContentFile,
+  [string]$Date = (Get-Date -Format 'yyyy-MM-dd'),
+  [string]$Description = 'Draft post',
+  [string[]]$Tags = @('note')
 )
-$Slug = ($Title.ToLower() -replace "[^a-z0-9]+","-").Trim("-")
-$Date = Get-Date -Format "yyyy-MM-dd"
+$Slug = ($Title.ToLower() -replace '[^a-z0-9]+','-').Trim('-')
 $Out = "src/content/blog/$Slug.md"
+$TagsYaml = ($Tags | ForEach-Object { '""' + $_ + '""' }) -join ', '
 
-# Gera o arquivo do post com frontmatter + conteúdo
-@("---","title: `"$Title`"","description: `"Draft post`"","pubDate: `"$Date`"","tags: [`"note`"]","---","", (Get-Content $ContentFile -Raw)) |
-  Set-Content -Encoding UTF8 $Out
+@("---",
+  "title: "$Title"",
+  "description: "$Description"",
+  "pubDate: "$Date"",
+  "tags: [$TagsYaml]",
+  "---","",
+  (Get-Content $ContentFile -Raw)
+) | Set-Content -Encoding UTF8 $Out
 
-Write-Host "Wrote $Out"
-
-git add $Out
-git commit -m "post: $Title"
-git push
+git add $Out; git commit -m "post: $Title"; git push

@@ -1,22 +1,20 @@
 ﻿---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 const { title = 'Brain Development', description = 'Exploring BCI, kinetic sensing, and secure AI' } = Astro.props;
 ---
-<html lang="en">
+<html lang='en'>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
     <title>{title}</title>
-    <meta name="description" content={description} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="stylesheet" href="/src/styles/global.css" />
+    <meta name='description' content={description} />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
   </head>
   <body>
-    <div class="container">
-      <span class="badge">Project Brain Development</span>
-      <slot />
-      <footer style="margin-top:28px;font-size:12px;color:#9fb3c8">
-        © 2025 Vinicios Ongaratto — Intellectual Property
-      </footer>
-    </div>
+    <Header />
+    <main class='container'><slot /></main>
+    <Footer />
   </body>
 </html>
