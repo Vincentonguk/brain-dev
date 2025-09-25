@@ -25,3 +25,4 @@ Goal: enable safe, consent-driven interfaces that help people **learn faster, so
 4. Integrations      5. Trials
 
 © 2025 **Vinicios Ongaratto** — Intellectual Property.
+

@@ -14,3 +14,4 @@ Build a **kinetic-sensor prototype** to validate signal acquisition and session 
 4) Store encrypted samples
 
 © 2025 Vinicios Ongaratto — Intellectual Property.
+
