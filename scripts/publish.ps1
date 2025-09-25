@@ -18,4 +18,7 @@ $TagsYaml = ($Tags | ForEach-Object { '""' + $_ + '""' }) -join ', '
   (Get-Content $ContentFile -Raw)
 ) | Set-Content -Encoding UTF8 $Out
 
-git add $Out; git commit -m "post: $Title"; git push
+Write-Host "Wrote: $Out"
+git add $Out
+git commit -m "post: $Title"
+git push
